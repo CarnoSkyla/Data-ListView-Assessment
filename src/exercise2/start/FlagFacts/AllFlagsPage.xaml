@@ -4,6 +4,16 @@
              Title="Fun with Flags"
              x:Class="FlagFacts.AllFlagsPage">
 
-    <ListView ItemsSource="{Binding Flags}" SelectedItem="{Binding CurrentFlag, Mode=TwoWay}" ItemTapped="ListView_ItemTapped" />
+    <ListView ItemsSource="{Binding Flags}" SelectedItem="{Binding CurrentFlag, Mode=TwoWay}" ItemTapped="ListView_ItemTapped" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ImageCell DetailColor="Gray" Text="{Binding Country}"
+                     Detail="{Binding DateAdopted, StringFormat='Adopted on {0:d}'}"
+                     ImageSource="{Binding ImageUrl, Converter={StaticResource irConverter}}">
+                    
+                </ImageCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </ContentPage>
